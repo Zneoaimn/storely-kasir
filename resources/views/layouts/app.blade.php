@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Laravel') }} - @yield('title', 'Dashboard')</title>
-
+    <meta name="layout-check" content="layouts-app-active">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-[#fafafa] text-[#111]">
