@@ -13,9 +13,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Trust all proxies so Northflank's reverse proxy HTTPS headers are respected
+        $middleware->trustProxies(at: '*');
+
         $middleware->alias([
-    'role' => CheckRole::class,
-    ]);
+            'role' => CheckRole::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
